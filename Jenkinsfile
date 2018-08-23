@@ -1,20 +1,19 @@
 pipeline {
 	agent any
 	stages {
-		stage('Initialization'){
-			steps {
-				echo "Hello World"
-				}
-			}
 		stage('Build'){
 			steps {
-			echo "Hello World"
-			}
-		    }
-		stage('End'){
-			steps{
-				echo "Yes World"
+				//echo "Hello World"
+				bat 'mvn clean package'
+				}
+			
+			post{
+				success{
+					
+				archiveArtifacts artifacts : "**/*.war"
 			}
 		}
-		}
+          }
+    }
+
 }
