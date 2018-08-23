@@ -3,7 +3,6 @@ pipeline {
 	stages {
 		stage('Initialization'){
 			steps {
-				echo "Maven = $(M2_Home)"
 				echo "Hello World"
 				}
 			}
